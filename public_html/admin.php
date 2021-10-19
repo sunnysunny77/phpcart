@@ -26,7 +26,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Item') {
       $s->execute();
     }
     catch (PDOException $e) {
-      $output = 'Database error inerting mimetype.' . $e->getMessage();
+      $output = 'Database error inserting mimetype.' . $e->getMessage();
       include_once  $root . '/components/error.html.php';
       exit();
     }
@@ -155,7 +155,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Item') {
     $s->execute();
   }
   catch (PDOException $e) {
-    $output = 'Database error inerting mimetype.' . $e->getMessage();
+    $output = 'Database error inserting mimetype.' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
     exit();
   }
