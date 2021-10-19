@@ -19,15 +19,28 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Item') {
     $uploaddata = file_get_contents($uploadfile);
 
     try {
+      $sql = 'INSERT IGNORE INTO mimetypes (mimetype)
+              VALUES (:mimetype)';
+      $s = $pdo->prepare($sql);
+      $s->bindValue(':mimetype', $uploadtype);
+      $s->execute();
+    }
+    catch (PDOException $e) {
+      $output = 'Database error inerting mimetype.' . $e->getMessage();
+      include_once  $root . '/components/error.html.php';
+      exit();
+    }
+    
+    try {
       $sql = 'UPDATE files SET
       filename = :filename,
-      mimetype = :mimetype,
-      filedata = :filedata
+      filedata = :filedata,
+      mimetype_id = (SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype )
       WHERE file_id = :id';
       $s = $pdo->prepare($sql);
       $s->bindValue(':filename', $uploadname);
-      $s->bindValue(':mimetype', $uploadtype);
       $s->bindValue(':filedata', $uploaddata);
+      $s->bindValue(':mimetype', $uploadtype);
       $s->bindValue(':id', $file_id);
       $s->execute();
     }
@@ -135,12 +148,25 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Item') {
   include_once $root . "/includes/db.inc.php";
 
   try {
-    $sql = 'INSERT INTO files (filename,mimetype,filedata) 
-    VALUES (:filename,:mimetype,:filedata)';
+    $sql = 'INSERT IGNORE INTO mimetypes (mimetype)
+            VALUES (:mimetype)';
+    $s = $pdo->prepare($sql);
+    $s->bindValue(':mimetype', $uploadtype);
+    $s->execute();
+  }
+  catch (PDOException $e) {
+    $output = 'Database error inerting mimetype.' . $e->getMessage();
+    include_once  $root . '/components/error.html.php';
+    exit();
+  }
+  
+  try {
+    $sql = 'INSERT INTO files (filename,filedata,mimetype_id) 
+    VALUES (:filename,:filedata,(SELECT mimetype_id FROM mimetypes WHERE mimetype = :mimetype))';
     $s = $pdo->prepare($sql);
     $s->bindValue(':filename', $uploadname);
-    $s->bindValue(':mimetype', $uploadtype);
     $s->bindValue(':filedata', $uploaddata);
+    $s->bindValue(':mimetype', $uploadtype);
     $s->execute();
   }
   catch (PDOException $e) {

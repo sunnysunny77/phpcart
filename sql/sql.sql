@@ -1,6 +1,6 @@
-CREATE DATABASE cart;
+CREATE DATABASE store;
 
-use cart;
+use store;
 
 CREATE TABLE admins (
     admin_id TINYINT UNSIGNED AUTO_INCREMENT,
@@ -12,15 +12,24 @@ CREATE TABLE admins (
 INSERT INTO admins (email,password)
 VALUES ("boss@shop.com",MD5('passwordstore'));
 
+CREATE TABLE mimetypes ( 
+    mimetype_id INT UNSIGNED AUTO_INCREMENT, 
+    mimetype VARCHAR(50) NOT NULL UNIQUE,
+    PRIMARY KEY (mimetype_id)
+);
+
+INSERT INTO mimetypes (mimetype) VALUES ("image/jpeg");
+
 CREATE TABLE files ( 
     file_id INT UNSIGNED AUTO_INCREMENT, 
     filename VARCHAR(255) NOT NULL, 
-    mimetype VARCHAR(50) NOT NULL, 
-    filedata MEDIUMBLOB, 
-    PRIMARY KEY (file_id)
+    filedata MEDIUMBLOB,
+    mimetype_id INT UNSIGNED NOT NULL,  
+    PRIMARY KEY (file_id),
+    FOREIGN KEY (mimetype_id) REFERENCES mimetypes(mimetype_id)
 );
 
-INSERT INTO files (filename, mimetype) VALUES ("Watch.jpeg", "image/jpeg"),("Wallet.jpeg", "image/jpeg");
+INSERT INTO files (filename, mimetype_id) VALUES ("Watch.jpeg", 1),("Wallet.jpeg", 1);
 
 CREATE TABLE items (
     item_id SMALLINT UNSIGNED AUTO_INCREMENT,
