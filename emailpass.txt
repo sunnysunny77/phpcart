@@ -1,0 +1,9 @@
+Store:
+
+Email: shlooby070@gmail.com
+Pass: password
+
+admin:
+
+Email: boss@shop.com
+Pass: password

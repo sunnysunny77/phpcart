@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* css */
+
+table {
+  width: 100%;
+  background-color: rgba(192, 192, 192, 0.25);
+  margin: auto;
+  border-collapse: collapse;
+  word-break: break-all;
+  border: 1px solid #040f0f;
+}
+
+caption {
+  padding: 30px;
+  font-size: larger;
+}
+
+table img {
+  border-radius: 100%;
+  filter: grayscale(100%);
+  display: block;
+  margin: auto;
+  padding: 20px 0;
+}
+
+th {
+  text-transform: uppercase;
+}
+
+table,
+th,
+td {
+  padding: 10px 0;
+  text-align: center;
+}
+
+input[type=submit] {
+  background-color: transparent;
+  border: 1px solid #040f0f;
+  color: inherit;
+}
+
+label {
+  margin: 3%;
+}
+
+#log {
+  display: inline-block;
+  background-color: transparent;
+  color: inherit;
+  border-radius: 50px;
+  font-size: inherit;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #040f0f;
+  width: unset;
+  padding: 5px 10px;
+  margin: 5% 15%;
+}
+
+@media only screen and (max-width: 1024px) {
+  table img {
+    margin: auto auto auto calc(50% - 75px);
+  }
+  th {
+    position: absolute;
+    clip: rect(0 0 0 0);
+  }
+  tr {
+    display: block;
+    border-bottom: 1px solid #040f0f;
+  }
+  td {
+    display: block;
+    text-align: right;
+    padding: 10px;
+  
+  }
+  td::before {
+    content: attr(headers);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  table {
+    border-bottom: none;
+    border-top: none;
+  }
+}

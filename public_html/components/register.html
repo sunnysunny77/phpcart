@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sign Up</title>
+    <meta name="author" content="D.C" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/lsform.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Register</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="./">Store</a>
+            </li>
+            <li>
+                <a href="./orders.php">Orders</a>
+            </li>
+            <li>
+                <a href="./register.php">Register</a>
+            </li>
+            <li>
+                <a href="./cart.php">Cart</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+      <form action="?" method="post">
+        <label for="name">Name:</label>
+        <input autocomplete="on" type="text" name="name" id="name" />
+        <label for="phone"> Phone number: </label>
+        <input autocomplete="on" type="text" name="phone" id="phone" />
+        <label for="email"> Email: </label>
+        <input autocomplete="on" type="text" name="email" id="email" />
+        <label for="pass">Password:</label>
+        <input autocomplete="on" type="password" name="pass" id="pass" />
+        <label for="street">Street Address:</label>
+        <input autocomplete="on" type="text" name="street" id="street" />
+        <label for="suberb">Suberb:</label>
+        <input autocomplete="on" type="text" name="suberb" id="suberb" />
+        <label for="code">Post Code:</label>
+        <input autocomplete="on" type="text" name="code" id="code" />
+        <label for="state">State:</label>
+        <select name="state" id="state">
+          <option value="">Select a State</option>
+          <option value="ACT">ACT</option>
+          <option value="NSW">NSW</option>
+          <option value="NT">NT</option>
+          <option value="QLD">QLD</option>
+          <option value="SA">SA</option>
+          <option value="TAS">TAS</option>
+          <option value="VIC">VIC</option>
+          <option value="WA">WA</option>
+        </select>
+        <input type="submit" name="action" value="Register" />
+      </form>
+    </main>
+    <footer>
+      <p>&copy;&nbsp;D.C</p>
+      <a href="./admin.php">Admin</a>
+    </footer>
+  </body>
+</html>

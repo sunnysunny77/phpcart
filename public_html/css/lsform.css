@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* css */
+
+form {
+  width: 200px;
+  margin: auto;
+  padding: 10vh 0;
+}
+
+input, select {
+  margin: 10px auto;
+  width: calc(100% - 4px);
+  padding: 0;
+  display: block;
+}
+
+input[type=submit] {
+  background-color: transparent;
+  color: inherit;
+  border-radius: 50px;
+  font-size: inherit;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #040F0F;
+  width: unset;
+  padding: 5px 10px;
+  margin: 2% auto auto auto;
+}
+
+textarea {
+  resize: none;
+}
