@@ -56,9 +56,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'Register') {
   include_once $root . "/includes/db.inc.php";
 
   try {
-    $sql = 'INSERT INTO post_codes (post_code)
-      VALUES (:code) ON DUPLICATE KEY UPDATE
-      post_code = :code';
+    $sql = 'INSERT IGNORE INTO post_codes (post_code)
+      VALUES (:code)';
     $s = $pdo->prepare($sql);
     $s->bindValue(':code', $code);
     $s->execute();
@@ -69,9 +68,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'Register') {
   }
 
   try {
-    $sql = 'INSERT INTO suberbs (suberb)
-    VALUES (:suberb) ON DUPLICATE KEY UPDATE
-    suberb = :suberb';
+    $sql = 'INSERT IGNORE INTO suberbs (suberb)
+    VALUES (:suberb)';
     $s = $pdo->prepare($sql);
     $s->bindValue(':suberb', strtoupper($suberb));
     $s->execute();
@@ -82,36 +80,17 @@ if (isset($_POST['action']) && $_POST['action'] == 'Register') {
   }
 
   try {
-    $sql = 'SELECT post_code_id, suberb_id, state_id
-      FROM post_codes, suberbs, states 
-      WHERE post_code = :code
-      AND suberb = :suberb
-      AND state = :state';
-    $s = $pdo->prepare($sql);
-    $s->bindValue(':code', $code);
-    $s->bindValue(':suberb', $suberb);
-    $s->bindValue(':state', $state);
-    $s->execute();
-  } catch (PDOException $e) {
-    $output = 'Error selecting post code: ' . $e->getMessage();
-    include_once $root . '/components/error.html.php';
-    exit();
-  }
-
-  $ids = $s->fetch();
-
-  try {
     $sql = 'INSERT INTO clients (name, phone, email, password, street, suberb_id, post_code_id, state_id)
-      VALUES (:name, :phone, :email, :password, :street, :suberb_id, :post_code_id, :state_id)';
+      VALUES (:name, :phone, :email, :password, :street, (SELECT suberb_id FROM suberbs WHERE suberb = :suberb ), (SELECT post_code_id FROM post_codes WHERE post_code = :post_code ), (SELECT state_id FROM states WHERE state = :state ))';
     $s = $pdo->prepare($sql);
     $s->bindValue(':name', $name);
     $s->bindValue(':phone', $phone);
     $s->bindValue(':email', $email);
     $s->bindValue(':password', md5($pass . "store"));
     $s->bindValue(':street', strtoupper($street));
-    $s->bindValue(':suberb_id', $ids["suberb_id"]);
-    $s->bindValue(':post_code_id', $ids["suberb_id"]);
-    $s->bindValue(':state_id', $ids["state_id"]);
+    $s->bindValue(':suberb', strtoupper($suberb));
+    $s->bindValue(':post_code', $code);
+    $s->bindValue(':state', $state);
     $s->execute();
   } catch (PDOException $e) {
     if ($e->getCode() == 23000) {
