@@ -13,7 +13,7 @@ INSERT INTO admins (email,password)
 VALUES ("boss@shop.com",MD5('passwordstore'));
 
 CREATE TABLE mimetypes ( 
-    mimetype_id INT UNSIGNED AUTO_INCREMENT, 
+    mimetype_id TINYINT UNSIGNED AUTO_INCREMENT, 
     mimetype VARCHAR(50) NOT NULL UNIQUE,
     PRIMARY KEY (mimetype_id)
 );
@@ -24,7 +24,7 @@ CREATE TABLE files (
     file_id INT UNSIGNED AUTO_INCREMENT, 
     filename VARCHAR(255) NOT NULL, 
     filedata MEDIUMBLOB,
-    mimetype_id INT UNSIGNED NOT NULL,  
+    mimetype_id TINYINT UNSIGNED NOT NULL,  
     PRIMARY KEY (file_id),
     FOREIGN KEY (mimetype_id) REFERENCES mimetypes(mimetype_id)
 );
