@@ -9,7 +9,6 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <link href="css/table.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
     <header>
         <h1>Orders</h1>
@@ -33,6 +32,7 @@
     <main>
 
         <?php include_once $root . "/includes/helpers.inc.php";
+
         $total = 0;
 
         echo "<table>";
@@ -133,5 +133,4 @@
         <a href="./admin.php">Admin</a>
     </footer>
 </body>
-
 </html>

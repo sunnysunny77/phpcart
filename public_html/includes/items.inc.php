@@ -8,7 +8,7 @@ try {
 }
 
 catch (PDOException $e) {
-  $output = 'Error fetching orders: ' . $e->getMessage();
+  $output = 'Error fetching orders. ' . $e->getMessage();
   require $root . '/components/error.html.php';
   exit();
 }

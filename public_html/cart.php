@@ -19,7 +19,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Purchase' && $_SESSION['logi
  
   try {
     $sql = 'INSERT INTO orders (quantity,client_id,item_id)
-    VALUES (:quantity,:client_id,:item_id)';
+            VALUES (:quantity,:client_id,:item_id)';
     $s = $pdo->prepare($sql);
     foreach ($_SESSION["cart"] as $items) {
       $s->bindValue(':quantity', $items["quantity"]);
@@ -28,7 +28,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Purchase' && $_SESSION['logi
       $s->execute();
     }
   } catch (PDOException $e) {
-    $output = 'Error inserting order.' . $e->getMessage();;
+    $output = 'Error inserting order. ' . $e->getMessage();;
     include_once  $root . '/components/error.html.php';
     exit();
   }
@@ -37,7 +37,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Purchase' && $_SESSION['logi
   header('Location: ./orders.php');
   exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Remove') {
+if (isset($_POST['action']) && $_POST['action'] == 'Remove' && $_SESSION['login']) {
 
   unset($_SESSION['cart'][$_POST['remove']]);
 

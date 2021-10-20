@@ -6,7 +6,7 @@ try {
   
 }
 catch (PDOException $e) {
-  $output = 'Error fetching items: ' . $e->getMessage();
+  $output = 'Error fetching items. ' . $e->getMessage();
   require $root . '/components/error.html.php';
   exit();
 }

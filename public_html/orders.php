@@ -19,13 +19,13 @@ if (isset($_POST['action']) && $_POST['action'] == 'Arrived' && $_SESSION['login
 
   try {
     $sql = 'DELETE FROM orders
-    WHERE order_id= :order_id';
+            WHERE order_id= :order_id';
     $s = $pdo->prepare($sql);
     $s->bindValue(':order_id', $_POST['remove']);
     $s->execute();
   }
   catch (PDOException $e) {
-    $output = 'Error removing order.' . $e->getMessage();;
+    $output = 'Error deleting order. ' . $e->getMessage();;
     include_once  $root . '/components/error.html.php';
     exit();
   }

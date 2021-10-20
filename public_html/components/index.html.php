@@ -9,7 +9,6 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
     <link href="css/table.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
     <header>
         <h1> Store </h1>
@@ -100,5 +99,4 @@
         <a href="./admin.php">Admin</a>
     </footer>
 </body>
-
 </html>

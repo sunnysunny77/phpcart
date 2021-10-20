@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="css/styles.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
     <header>
         <h1>Error Output</h1>
@@ -40,5 +39,4 @@
         <a href="./admin.php">Admin</a>
     </footer>
 </body>
-
 </html>

@@ -57,31 +57,31 @@ if (isset($_POST['action']) && $_POST['action'] == 'Register') {
 
   try {
     $sql = 'INSERT IGNORE INTO post_codes (post_code)
-      VALUES (:code)';
+            VALUES (:code)';
     $s = $pdo->prepare($sql);
     $s->bindValue(':code', $code);
     $s->execute();
   } catch (PDOException $e) {
-    $output = 'Error inserting post code: ' . $e->getMessage();
+    $output = 'Error inserting post code. ' . $e->getMessage();
     include_once $root . '/components/error.html.php';
     exit();
   }
 
   try {
     $sql = 'INSERT IGNORE INTO suberbs (suberb)
-    VALUES (:suberb)';
+            VALUES (:suberb)';
     $s = $pdo->prepare($sql);
     $s->bindValue(':suberb', strtoupper($suberb));
     $s->execute();
   } catch (PDOException $e) {
-    $output = 'Error inserting suberbs code: ' . $e->getMessage();
+    $output = 'Error inserting suberb. ' . $e->getMessage();
     include_once $root . '/components/error.html.php';
     exit();
   }
 
   try {
     $sql = 'INSERT INTO clients (name, phone, email, password, street, suberb_id, post_code_id, state_id)
-      VALUES (:name, :phone, :email, :password, :street, (SELECT suberb_id FROM suberbs WHERE suberb = :suberb ), (SELECT post_code_id FROM post_codes WHERE post_code = :post_code ), (SELECT state_id FROM states WHERE state = :state ))';
+            VALUES (:name, :phone, :email, :password, :street, (SELECT suberb_id FROM suberbs WHERE suberb = :suberb ), (SELECT post_code_id FROM post_codes WHERE post_code = :post_code ), (SELECT state_id FROM states WHERE state = :state ))';
     $s = $pdo->prepare($sql);
     $s->bindValue(':name', $name);
     $s->bindValue(':phone', $phone);

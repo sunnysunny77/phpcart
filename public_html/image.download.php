@@ -8,8 +8,8 @@ if(isset($_GET['image_id'])) {
     
     try { 
         $sql = 'SELECT filename, mimetype, filedata
-        FROM files INNER JOIN mimetypes ON mimetypes.mimetype_id = files.mimetype_id
-        WHERE file_id= :file_id';
+                FROM files INNER JOIN mimetypes ON mimetypes.mimetype_id = files.mimetype_id
+                WHERE file_id= :file_id';
          $s = $pdo->prepare($sql);
          $s->bindValue(':file_id', $_GET['image_id']);
          $s->execute();

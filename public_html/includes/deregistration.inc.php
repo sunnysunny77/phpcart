@@ -2,35 +2,34 @@
 
 try {
   $sql = 'DELETE FROM clients
-    WHERE client_id NOT IN 
-    (SELECT client_id FROM orders)
-    AND email=:email';
+          WHERE client_id NOT IN 
+          (SELECT client_id FROM orders)
+          AND email=:email';
   $s = $pdo->prepare($sql);
   $s->bindValue(':email', $_POST['email']);
   $s->execute();
 } catch (PDOException $e) {
-  $output = 'Error deleting item: ' . $e->getMessage();
+  $output = 'Error deleting item. ' . $e->getMessage();
   include_once $root . '/components/error.html.php';
   exit();
 }
 
 if ($s->rowCount() == 0) {
-  $output = 'Error deleting cleint as it has current orders. ';
+  $output = 'Error deleting client as it has current orders. ';
   include_once $root . '/components/error.html.php';
   exit();
 }
 
 try {
   $sql = 'DELETE FROM post_codes WHERE 
-      post_code_id NOT IN 
-      (SELECT post_code_id FROM clients)';
+          post_code_id NOT IN 
+          (SELECT post_code_id FROM clients)';
   $s = $pdo->prepare($sql);
   $s->execute();
 }
 catch (PDOException $e) {
-    $output = 'Error deleting post_code:' . $e->getMessage();
+    $output = 'Error deleting post code. ' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
-    echo $foot;
     exit();
 }
 
@@ -42,9 +41,8 @@ try {
   $s->execute();
 }
 catch (PDOException $e) {
-    $output = 'Error deleting suberb:' . $e->getMessage();
+    $output = 'Error deleting suberb. ' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
-    echo $foot;
     exit();
 }
 

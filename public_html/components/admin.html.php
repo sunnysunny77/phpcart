@@ -10,7 +10,6 @@
     <link href="css/table.css" rel="stylesheet" type="text/css" />
     <link href="css/lsform.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
     <header>
         <h1>Admin</h1>
@@ -74,10 +73,8 @@
             </fieldset>
         </form>
 
-        
         <?php 
-
-
+        
         echo "<h2>Edit items in store</h2>";
         foreach ($items as $update_1) {
             echo "<form action=\"?\" method=\"post\" enctype=\"multipart/form-data\">";
@@ -148,5 +145,4 @@
         <a href="./admin.php">Admin</a>
     </footer>
 </body>
-
 </html>
