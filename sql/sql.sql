@@ -3,7 +3,7 @@ CREATE DATABASE store;
 use store;
 
 CREATE TABLE admins (
-    admin_id TINYINT UNSIGNED AUTO_INCREMENT,
+    admin_id TINYINT UNSIGNED DEFAULT 1,
     email VARCHAR(40) NOT NULL UNIQUE,
     password CHAR(32) NOT NULL,
     PRIMARY KEY (admin_id)
