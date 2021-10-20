@@ -4,7 +4,9 @@ session_start();
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 
-if (isset($_POST['action']) && $_POST['action'] == 'Change Login') {
+
+
+if (isset($_POST['action']) && $_POST['action'] == 'Change Login' && $_SESSION['admin']) {
 
   include_once $root . "/includes/login.valid.inc.php";
   
@@ -33,7 +35,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Change Login') {
   header( "refresh:5;./admin.php" );
   exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Insert Item') {
+if (isset($_POST['action']) && $_POST['action'] == 'Insert Item' && $_SESSION['admin']) {
 
   include_once $root . "/includes/store.valid.inc.php";
 
@@ -103,7 +105,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Insert Item') {
   header( "refresh:5;./admin.php" );
   exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Update Item') {
+if (isset($_POST['action']) && $_POST['action'] == 'Update Item' && $_SESSION['admin']) {
 
   include_once $root . "/includes/store.valid.inc.php";
 
@@ -172,7 +174,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Update Item') {
   header( "refresh:5;./admin.php" );
   exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Delete Item') {
+if (isset($_POST['action']) && $_POST['action'] == 'Delete Item' && $_SESSION['admin']) {
 
   include_once $root . "/includes/db.inc.php";
   

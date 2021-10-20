@@ -4,7 +4,7 @@ session_start();
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 
-if (isset($_POST['action']) && $_POST['action'] == 'Cancel Registration') {
+if (isset($_POST['action']) && $_POST['action'] == 'Cancel Registration' && $_SESSION['login']) {
 
   include_once $root . "/includes/db.inc.php";
 
@@ -13,7 +13,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Cancel Registration') {
   header('Location: ./logout.php');
   exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Arrived') {
+if (isset($_POST['action']) && $_POST['action'] == 'Arrived' && $_SESSION['login']) {
   
   include_once $root . "/includes/db.inc.php";
 

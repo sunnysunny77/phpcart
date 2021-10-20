@@ -4,12 +4,12 @@ session_start();
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 
-if (isset($_POST['action']) && $_POST['action'] == 'Add' && !isset($_SESSION['login'])) {
+if (isset($_POST['action']) && $_POST['action'] == 'Add' && !$_SESSION['login']) {
 
   echo file_get_contents($root . '/components/login.html');
   exit();
 }
-if (isset($_POST['action']) && $_POST['action'] == 'Add' && isset($_SESSION['login'])) {
+if (isset($_POST['action']) && $_POST['action'] == 'Add' && $_SESSION['login']) {
 
   $_SESSION['cart'][] = ["item_id" =>$_POST['item_id'],"quantity" =>$_POST['quantity'],"name" =>$_POST['name'],"description" =>$_POST['description'],"cost" =>$_POST['cost']];
   
