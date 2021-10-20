@@ -1,5 +1,7 @@
 <?php
+
 require $_SERVER['DOCUMENT_ROOT'] . "/../keys.php"; 
+
 try
 {
   $pdo = new PDO('mysql:host=localhost;dbname=cart', 'root', $db);
@@ -11,3 +13,5 @@ catch (PDOException $e) {
   require $root . '/components/error.html.php';
   exit();
 }
+
+?>

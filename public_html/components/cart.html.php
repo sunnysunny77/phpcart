@@ -43,6 +43,7 @@
         echo "<th id=\"phone\">Phone</th>";
         echo "<th id=\"email\">Email</th>";
         echo "<th id=\"address\">Address</th>";
+        echo "<th id=\"deregistration\">Deregistration</th>";
         echo "</tr>";
         echo "<tr>";
         echo "<td headers=\"user\">";
@@ -62,6 +63,14 @@
         htmlout($user["post_code"]);
         echo " ";
         htmlout($user["state"]);
+        echo "</td>";
+        echo "<td headers=\"deregistration\">";
+        echo "<form method=\"post\" action=\"?\">";
+        echo "<input type=\"hidden\" name=\"email\" value=\"";
+        htmlout($user["email"]);
+        echo "\"  />";
+        echo "<input type=\"submit\" name=\"action\" value=\"Cancel Registration\" />";
+        echo "</form>";
         echo "</td>";
         echo "</tr>";
         echo "</table>";

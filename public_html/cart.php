@@ -4,6 +4,15 @@ session_start();
 
 $root = $_SERVER['DOCUMENT_ROOT'];
 
+if (isset($_POST['action']) && $_POST['action'] == 'Cancel Registration') {
+
+  include_once $root . "/includes/db.inc.php";
+
+  include_once $root . "/includes/deregistration.inc.php";
+  
+  header('Location: ./logout.php');
+  exit();
+}
 if (isset($_POST['action']) && $_POST['action'] == 'Purchase') {
 
   include_once $root . "/includes/db.inc.php";

@@ -33,6 +33,21 @@
     </nav>
     <main>
 
+        <?php include_once $root . "/includes/helpers.inc.php";
+
+        echo "<h2>Change admin login</h2>";
+        echo "<form action=\"?\" method=\"post\">";
+        echo "<label for=\"email\"> Email: </label>";
+        echo "<input autocomplete=\"on\" id=\"email\" type=\"text\" name=\"email\" value=\"";
+        htmlout($_SESSION['email']);
+        echo"\"/>";
+        echo "<label for=\"pass\">Password:</label>";
+        echo "<input autocomplete=\"on\" type=\"password\" name=\"pass\" id=\"pass\" />";
+        echo "<input type=\"submit\" name=\"action\" value=\"Change Login\" />";
+        echo "</form>";
+
+        ?>
+
         <h2>ADD new item to store</h2>
         <form action="?" method="post" enctype="multipart/form-data">
             <fieldset>
@@ -60,27 +75,7 @@
         </form>
 
         
-        <?php include_once $root . "/includes/helpers.inc.php";
-
-        echo "<h2>Change current admin login</h2>";
-        echo "<form action=\"?\" method=\"post\">";
-        echo "<label for=\"email\"> Email: </label>";
-        echo "<input autocomplete=\"on\" id=\"email\" type=\"text\" name=\"email\" value=\"";
-        htmlout($_SESSION['email']);
-        echo"\"/>";
-        echo "<label for=\"pass\">Password:</label>";
-        echo "<input autocomplete=\"on\" type=\"password\" name=\"pass\" id=\"pass\" />";
-        echo "<input type=\"submit\" name=\"action\" value=\"Change Login\" />";
-        echo "</form>";
-
-        echo "<h2>Add new admin login</h2>";
-        echo "<form action=\"?\" method=\"post\">";
-        echo "<label for=\"new-email\"> Email: </label>";
-        echo "<input autocomplete=\"on\" id=\"new-email\" type=\"text\" name=\"email\"/>";
-        echo "<label for=\"new-pass\">Password:</label>";
-        echo "<input autocomplete=\"on\" type=\"password\" name=\"pass\" id=\"new-pass\" />";
-        echo "<input type=\"submit\" name=\"action\" value=\"New Login\" />";
-        echo "</form>";
+        <?php 
 
 
         echo "<h2>Edit items in store</h2>";
