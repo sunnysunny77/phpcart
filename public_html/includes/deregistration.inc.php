@@ -28,7 +28,7 @@ try {
   $s->execute();
 }
 catch (PDOException $e) {
-    $output = 'Error deleting files:' . $e->getMessage();
+    $output = 'Error deleting post_code:' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
     echo $foot;
     exit();
@@ -42,7 +42,7 @@ try {
   $s->execute();
 }
 catch (PDOException $e) {
-    $output = 'Error deleting files:' . $e->getMessage();
+    $output = 'Error deleting suberb:' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
     echo $foot;
     exit();

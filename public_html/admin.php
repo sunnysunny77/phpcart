@@ -178,17 +178,20 @@ if (isset($_POST['action']) && $_POST['action'] == 'Delete Item') {
   
   try {
     $sql = 'DELETE FROM items
-    WHERE item_id=:item_id';
+    WHERE item_id NOT IN 
+    (SELECT item_id FROM orders)
+    AND item_id=:item_id';
     $s = $pdo->prepare($sql);
     $s->bindValue(':item_id', $_POST['item_id']);
     $s->execute();
   } catch (PDOException $e) {
-    if ($e->getCode() == 23000) {
-      $output = 'Error deleting item as it has a current order. ';
-      include_once $root . '/components/error.html.php';
-      exit();
-    }
     $output = 'Error deleting item: ' . $e->getMessage();
+    include_once $root . '/components/error.html.php';
+    exit();
+  }
+
+  if ($s->rowCount() == 0) {
+    $output = 'Error deleting item as it has a current order. ';
     include_once $root . '/components/error.html.php';
     exit();
   }
