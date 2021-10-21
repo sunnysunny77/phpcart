@@ -25,7 +25,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Arrived' && $_SESSION['login
     $s->execute();
   }
   catch (PDOException $e) {
-    $output = 'Error deleting order. ' . $e->getMessage();;
+    $output = 'Error deleting order. ' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
     exit();
   }

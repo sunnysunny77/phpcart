@@ -28,7 +28,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'Purchase' && $_SESSION['logi
       $s->execute();
     }
   } catch (PDOException $e) {
-    $output = 'Error inserting order. ' . $e->getMessage();;
+    $output = 'Error inserting order. ' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
     exit();
   }

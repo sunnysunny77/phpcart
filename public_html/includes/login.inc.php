@@ -8,7 +8,7 @@ try {
     $s->execute();
 }
 catch (PDOException $e) {
-    $output = 'Error fetching credentials. ' . $e->getMessage();;
+    $output = 'Error fetching credentials. ' . $e->getMessage();
     include_once  $root . '/components/error.html.php';
     exit();
 }
