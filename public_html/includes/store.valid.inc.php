@@ -11,7 +11,7 @@
   if (strlen($name) > 40) {
       $output .= "Error name is longer than 40 chracters. \n\n ";
   }
-  if (strlen($pass) > 255) {
+  if (strlen($description) > 255) {
       $output .= "Error description is longer than 255 chracters. \n\n ";
   }
   if (!preg_match("/^\d{1,5}(?:\.\d{1,2})?$/", $cost )) {
