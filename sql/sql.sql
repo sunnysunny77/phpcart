@@ -10,7 +10,7 @@ CREATE TABLE admins (
 );
 
 INSERT INTO admins (email,password)
-VALUES ("boss@shop.com",MD5('passwordstore'));
+VALUES ("boss@shop.com",MD5('passwordA1store'));
 
 CREATE TABLE mimetypes ( 
     mimetype_id TINYINT UNSIGNED AUTO_INCREMENT, 
@@ -87,7 +87,7 @@ CREATE TABLE clients (
 );
 
 INSERT INTO clients (name,phone,email,password,street,suberb_id,post_code_id,state_id)
-VALUES ("Daneil Costello" ,"95579048" ,"shlooby070@gmail.com",MD5('passwordstore'),"9 MOSSPAUL RD",1,1,8);
+VALUES ("Daneil Costello" ,"95579048" ,"shlooby070@gmail.com",MD5('passwordA1store'),"9 MOSSPAUL RD",1,1,8);
 
 CREATE TABLE orders (
     order_id INT UNSIGNED AUTO_INCREMENT,
