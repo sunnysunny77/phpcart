@@ -32,6 +32,12 @@ if (isset($_POST['action']) && $_POST['action'] == 'Register') {
   if (strlen($pass) > 40) {
     $output .= "Error password is longer than 40 chracters. \n\n ";
   }
+  if (!preg_match("/[0-9]/", $street)) {
+    $output .= "Error street address patern accepts digits. \n\n ";
+  }
+  if (!preg_match("/[A-Za-z]/", $street)) {
+    $output .= "Error street address patern accepts letters. \n\n ";
+  }
   if (strlen($street) > 40) {
     $output .= "Error street address is longer than 40 chracters. \n\n ";
   }
