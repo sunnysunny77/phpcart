@@ -13,13 +13,13 @@ if (!preg_match("/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,6}$/", $email )) {
 if (strlen($email) > 40) {
     $output .= "Error username is longer than 40 chracters. \n\n ";
 }
-if (preg_match("/^[^0-9]*$/", $pass )) {
+if (preg_match("/^[^0-9]+$/", $pass )) {
     $output .= "Error password patern accepts atleast one #. \n\n ";
 } 
-if (preg_match("/^[^A-Z]*$/", $pass )) {
+if (preg_match("/^[^A-Z]+$/", $pass )) {
     $output .= "Error password patern accepts atleast one capital letter. \n\n ";
 } 
-if (preg_match("/^[^a-z]*$/", $pass )) {
+if (preg_match("/^[^a-z]+$/", $pass )) {
     $output .= "Error password patern accepts atleast one lowercase letter. \n\n ";
 } 
 if (strlen($pass) > 40 ) {
