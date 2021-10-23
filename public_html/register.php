@@ -41,8 +41,8 @@ if (isset($_POST['action']) && $_POST['action'] == 'Register') {
   if (strlen($street) > 40) {
     $output .= "Error street address is longer than 40 chracters. \n\n ";
   }
-  if (!preg_match("/^[a-zA-Z\s]+$/", $suberb)) {
-    $output .= "Error suberb patern accepts letters. \n\n";
+  if (!preg_match("/^([a-zA-Z]+\s)*[a-zA-Z]+$/", $suberb)) {
+    $output .= "Error suberb patern accepts letters followed by one space. \n\n";
   }
   if (strlen($suberb) > 40) {
     $output .= "Error suberb is longer than 40 chracters. \n\n ";
