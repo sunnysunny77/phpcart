@@ -256,8 +256,9 @@ if (isset($_POST['action']) && $_POST['action'] == 'Login') {
       exit();
   }
   if ($s->rowCount() == 0) {
-      $output = "Incorrect credentials. \n\n Please navigate back.";
+      $output = "Incorrect credentials.";
       include_once  $root . '/components/error.html.php';
+      header( "refresh:5;./" );
       exit();
   }
 
