@@ -1,6 +1,6 @@
 <?php
 
-require $_SERVER["DOCUMENT_ROOT"] . "/../keys.php"; 
+include_once $_SERVER["DOCUMENT_ROOT"] . "/../keys.php"; 
 
 try
 {
@@ -10,7 +10,7 @@ try
 }
 catch (PDOException $e) {
   $output = "Unable to connect to the database server.";
-  require $root . "/components/error.html.php";
+  include_once $root . "/components/error.html.php";
   exit();
 }
 
