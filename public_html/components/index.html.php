@@ -31,9 +31,7 @@
     </nav>
     <main>
         
-        <?php
-
-        include_once $root . "/includes/helpers.inc.php";
+        <?php include_once $root . "/includes/helpers.inc.php";
 
         echo "<table>";
         echo "<caption>Items</caption>";

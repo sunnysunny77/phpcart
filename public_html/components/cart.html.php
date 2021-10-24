@@ -73,7 +73,7 @@
         echo "</td>";
         echo "</tr>";
         echo "</table>";
-        if (empty($_SESSION['cart'])) {
+        if (empty($_SESSION["cart"])) {
             echo "<p>Cart is empty</p>";
         } else {
             echo "<table>";

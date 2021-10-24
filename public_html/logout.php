@@ -7,7 +7,7 @@
   unset ($_SESSION["client_id"]);
   unset ($_SESSION["email"]);
   unset ($_SESSION["cart"]);
-  header('Location: ./');
+  header("Location: ./");
   exit();
 
 ?>

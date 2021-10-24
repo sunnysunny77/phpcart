@@ -1,7 +1,7 @@
 <?php
 
-  $name = $_POST['name'];
-  $description = $_POST['description'];
+  $name = $_POST["name"];
+  $description = $_POST["description"];
   $cost = $_POST["cost"];
   
   $output = "";
@@ -19,7 +19,7 @@
   } 
   if (!empty($output)) {
       $output .= "Please navigate back.";
-      include_once  $root . '/components/error.html.php';
+      include_once  $root . "/components/error.html.php";
       exit();  
   }
 

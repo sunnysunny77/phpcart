@@ -1,7 +1,7 @@
 <?php
 
-$email = $_POST['email'];
-$pass = $_POST['pass'];
+$email = $_POST["email"];
+$pass = $_POST["pass"];
 
 $output = "";
 if (empty($email) || empty($pass)) {
@@ -29,7 +29,7 @@ if (strlen($pass) < 8) {
     $output .= "Error password is less than 8 chracters. \n\n ";
 }
 if (!empty($output)) {
-    include_once  $root . '/components/error.html.php';
+    include_once  $root . "/components/error.html.php";
     header( "refresh:5;./" );
     exit();  
 }
