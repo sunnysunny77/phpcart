@@ -18,7 +18,7 @@ CREATE TABLE mimetypes (
     PRIMARY KEY (mimetype_id)
 );
 
-INSERT INTO mimetypes (mimetype) VALUES ("image/jpeg");
+INSERT INTO mimetypes (mimetype) VALUES ("image/jpeg"),("image/png");
 
 CREATE TABLE files ( 
     file_id INT UNSIGNED AUTO_INCREMENT, 
@@ -29,7 +29,7 @@ CREATE TABLE files (
     FOREIGN KEY (mimetype_id) REFERENCES mimetypes(mimetype_id)
 );
 
-INSERT INTO files (filename, mimetype_id) VALUES ("Watch.jpeg", 1),("Wallet.jpeg", 1);
+INSERT INTO files (filename, mimetype_id) VALUES ("Watch.jpeg", 1),("Wallet.jpeg", 1),("Ring.jpeg", 1),("Mug.png", 2);
 
 CREATE TABLE items (
     item_id SMALLINT UNSIGNED AUTO_INCREMENT,
@@ -41,7 +41,10 @@ CREATE TABLE items (
     FOREIGN KEY (file_id) REFERENCES files(file_id)
 );
 INSERT INTO items (name,description,cost,file_id)
-VALUES ("Watch", "Good Run, 42 mm, Second Time Zone Day/Night.",00186.00,1),("Wallet","A pocket-sized flat folding case for holding money and plastic cards.",00386.00,2);
+VALUES ("Watch", "Good Run, 42 mm, Second Time Zone Day/Night.",00186.00,1),
+("Wallet","A pocket-sized flat folding case for holding money and plastic cards.",00386.00,2),
+("Ring","A nice ring.",00100.00,3),
+("Mug","Fill me up with tea mug.",00030.00,4);
 
 CREATE TABLE suberbs (
     suberb_id INT UNSIGNED AUTO_INCREMENT,
@@ -50,7 +53,7 @@ CREATE TABLE suberbs (
 );
 
 INSERT INTO suberbs (suberb)
-VALUES ("CARINE");
+VALUES ("CARINE"),("DUNCRAIGE");
 
 CREATE TABLE post_codes (
     post_code_id SMALLINT UNSIGNED AUTO_INCREMENT,
@@ -59,7 +62,7 @@ CREATE TABLE post_codes (
 );
 
 INSERT INTO post_codes (post_code)
-VALUES ("6091");
+VALUES ("6091"),("6056");
 
 CREATE TABLE states (
     state_id TINYINT UNSIGNED AUTO_INCREMENT,
@@ -87,7 +90,9 @@ CREATE TABLE clients (
 );
 
 INSERT INTO clients (name,phone,email,password,street,suberb_id,post_code_id,state_id)
-VALUES ("Daneil Costello" ,"95579048" ,"shlooby070@gmail.com",MD5('passwordA1store'),"9 MOSSPAUL RD",1,1,8);
+VALUES ("Daneil Costello" ,"95579048" ,"shlooby070@gmail.com",MD5('passwordA1store'),"9 MOSSPAUL RD",1,1,8),
+("Tony Evans" ,"96679834" ,"tevans@gmail.com",MD5('passwordA2store'),"7 START RD",2,2,5),
+("Riki Ensen" ,"96673864" ,"riki@gmail.com",MD5('passwordA3store'),"3 MIDDLE WY",1,1,8);
 
 CREATE TABLE orders (
     order_id INT UNSIGNED AUTO_INCREMENT,
@@ -101,4 +106,4 @@ CREATE TABLE orders (
 );
 
 INSERT INTO orders (quantity,client_id,item_id)
-VALUES (1,1,1),(2,1,2);
+VALUES (1,1,1),(2,1,2),(1,2,3),(2,3,4);
