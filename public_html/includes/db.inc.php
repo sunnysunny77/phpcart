@@ -1,10 +1,9 @@
 <?php
 
-include_once $_SERVER["DOCUMENT_ROOT"] . "/../keys.php"; 
 
 try
 {
-  $pdo = new PDO("mysql:host=localhost;dbname=cart", "root", $db);
+  $pdo = new PDO("mysql:host=localhost;dbname=cart", "root","");
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   $pdo->exec("SET NAMES 'utf8'");
 }
