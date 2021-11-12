@@ -1,6 +1,6 @@
-CREATE DATABASE store;
+CREATE DATABASE cart;
 
-use store;
+use cart;
 
 CREATE TABLE admins (
     admin_id TINYINT UNSIGNED DEFAULT 1,
