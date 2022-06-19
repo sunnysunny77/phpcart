@@ -2,7 +2,8 @@
 /* css */
 
 body {
-  margin: 0;
+  margin: auto;
+  max-width: 1920px;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #fcfffc;
 }
@@ -51,7 +52,7 @@ a:hover {
 main {
   padding: 30px;
   background-color: #248232;
-  min-height: 63vh;
+  min-height: 74.5vh;
 }
 
 p {
@@ -82,5 +83,11 @@ footer a {
   }
   body {
     font-size: smaller;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  body {
+    box-shadow: 1px 0 grey, -1px 0 grey;
   }
 }
