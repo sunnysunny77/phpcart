@@ -17,6 +17,17 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+header::before {
+  content: "";
+  background-image: url(../images/handmade-paper.png);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
 }
 
 h1 {
@@ -28,6 +39,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(../images/handmade-paper.png);
 }
 
 nav ul {
@@ -53,6 +65,7 @@ main {
   padding: 30px;
   background-color: #248232;
   min-height: 74.5vh;
+  background-image: url(../images/handmade-paper.png);
 }
 
 p {
@@ -66,6 +79,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-image: url(../images/handmade-paper.png);
 }
 
 footer a {
@@ -78,9 +92,11 @@ footer a {
   main {
     padding: 0;
   }
+
   header {
     justify-content: flex-start;
   }
+
   body {
     font-size: smaller;
   }
